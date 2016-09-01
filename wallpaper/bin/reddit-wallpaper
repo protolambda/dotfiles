@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# random wallpaper from reddit, by @protolambda
+#
+# How it works: 
+#  get the list of subreddits (multireddits etc. work too)
+#  retain all entries not starting with '#', these lines are comments or disabled subreddits
+#  shuffle the lines, keep 1, to pick a random subreddit
+#  log the subreddit name to "wallpaper_url.log"
+#  insert it into the api url
+#  get the JSON response from the api
+#  split JSON in lines
+#  retain all lines with a "url" key
+#  replace indirect imgur with direct imgur
+#  replace "&amp;" with "&", reddituploads needs its parameters to verify the signature
+#  retain reddituploads (not redditmedia!) and non-album imgur lines,
+#    while making sure it is not somewhere inside the contents of another url (match starts with a ").
+#  get a random line
+#  get the url from this line (split using JSON delimiters, get field 4)
+#  log the url to "wallpaper_url.log"
+#  wget the url, save as "wallpaper" (overwriting the old wallpaper file!)
+#  if successful: set it as background with feh (without aspect ratio changes, filling the whole screen)
+#
+
+cat "$HOME/.img_subreddits" \
+| grep '^[^\#]' \
+| shuf -n 1 \
+| tee -a "$HOME/wallpaper.log" \
+| sed 's/.*/\"http\:\/\/reddit.com\/\0\/hot.json?limit=10\"/' \
+| xargs wget -qO- \
+| tr ',' '\n' \
+| grep '"url"' \
+| sed -r 's/\:\/\/(i\.|)(imgur.com\/.*?)\.[^"]*/\:\/\/i\.\2\.jpg/g' \
+| sed 's/\&amp\;/\&/g' \
+| grep -P '\"http(?:s|)\:\/\/(?:(?:i\.redd\.it)|(?:i\.reddituploads\.com)|(?:i\.imgur\.com))(?!\/a\/)' \
+| shuf -n 1 \
+| cut -d'"' -f4 \
+| tee -a "$HOME/wallpaper.log" \
+| xargs --no-run-if-empty wget -qO wallpaper \
+&& feh --bg-fill wallpaper \
+|| echo "failed to download/set wallpaper" >> "$HOME/wallpaper.log"

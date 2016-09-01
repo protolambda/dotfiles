@@ -1,0 +1,25 @@
+full_text=
+align=center
+separator=false
+separator_block_width=30
+
+[window]
+command=xtitle -s -t 120 
+align=center
+interval=persist
+
+#TODO temperature
+#TODO diskspace
+#TODO ram
+#TODO cpu
+#TODO volume 
+
+[separator]
+
+
+[time]
+full_text=
+command=echo "`date +%s` / `date +'%a %d %b'` / <b>`date +'%T'`</b> "
+interval=1
+markup=pango
+

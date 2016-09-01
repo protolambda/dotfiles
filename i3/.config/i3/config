@@ -1,0 +1,426 @@
+# i3 config file by protolambda
+
+# general configuration
+set $mod Mod4
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# start a terminal
+bindcode $mod+36 exec i3-sensible-terminal
+
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# dmenu (TODO: try rofi)
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+
+
+# reload .Xresources
+exec_always exec xrdb -load .Xresources
+
+# font
+font pango:DejaVu Sans Mono 8
+
+
+
+# load colors from .Xresources
+#                 variable     Xres         fallback
+set_from_resource $darkblack   color0       #101010
+set_from_resource $black       color8       #404040
+set_from_resource $darkred     color1       #ff0000
+set_from_resource $red         color9       #ff0000
+set_from_resource $darkgreen   color2       #00ff00
+set_from_resource $green       color10      #00ff00
+set_from_resource $darkyellow  color3       #ffff00
+set_from_resource $yellow      color11      #ffff00
+set_from_resource $darkblue    color4       #0000ff
+set_from_resource $blue        color12      #0000ff
+set_from_resource $darkmagenta color5       #ff00ff
+set_from_resource $magenta     color13      #ff00ff
+set_from_resource $darkcyan    color6       #00ffff
+set_from_resource $cyan        color14      #00ffff
+set_from_resource $darkwhite   color7       #ffffff
+set_from_resource $white       color15      #ffffff
+set_from_resource $bgcolor     background   #000000
+
+
+# Bar
+# =======================
+
+# Start i3bar to display a workspace bar with system info
+bar {
+#       verbose yes
+        status_command i3blocks
+        i3bar_command i3bar -t
+        position top
+        colors{
+                background $bgcolor
+                statusline $white
+
+#               color class        border             background         text
+                focused_workspace  $bgcolor           $yellow            $bgcolor
+		active_workspace   $bgcolor           $cyan              $bgcolor
+		inactive_workspace $bgcolor           $black             $white
+		urgent_workspace   $darkred           $red               $bgcolor
+        }
+}
+
+# class                 border     background    text       indicator   child_border
+client.focused          $yellow    $darkblack    $white     $magenta    $darkyellow
+client.focused_inactive $black     $black        $white     $darkcyan   $black
+client.unfocused        $darkblack $darkblack    $darkwhite $darkcyan   $darkblack
+client.urgent           $darkred   $red          $black     $yellow     $darkred
+client.placeholder      $bgcolor   $darkblack    $white     $bgcolor    $darkblack
+
+client.background       $darkblack
+
+
+# TODO set fancy workspace icons
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace10 "10"
+
+# bind programs to workspaces
+#assign [class="Firefox"] $workspace1
+# TODO assign more programs
+
+
+
+
+# gaps & borders
+smart_borders on
+smart_gaps on
+
+for_window [class="^.*"] border pixel 2
+
+# gaps
+set $default_gaps_inner 30
+set $default_gaps_outer 0
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
+
+
+
+
+
+
+
+
+# Navigation
+# =============================
+
+# focus the parent container
+bindsym $mod+a               focus parent
+bindsym $mod+z               focus child
+
+
+# change focus
+bindsym $mod+j               focus left
+bindsym $mod+k               focus down
+bindsym $mod+l               focus up
+bindsym $mod+semicolon       focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left            focus left
+bindsym $mod+Down            focus down
+bindsym $mod+Up              focus up
+bindsym $mod+Right           focus right
+
+# move focused window
+bindsym $mod+Shift+j         move left
+bindsym $mod+Shift+k         move down
+bindsym $mod+Shift+l         move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left      move left
+bindsym $mod+Shift+Down      move down
+bindsym $mod+Shift+Up        move up
+bindsym $mod+Shift+Right     move right
+
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# toggle split-orientation
+bindsym $mod+t split toggle
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+
+
+
+
+
+
+# Floating stuff
+# =============================
+
+# floating (drag window)
+floating_modifier $mod
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# assign floating properties
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="Thunar"] floating enable
+
+for_window [window_role="pop-up"] floating enable,move absolute center,move workspace current
+for_window [window_role="bubble"] floating enable,move workspace current
+for_window [window_role="task_dialog"] floating enable,move workspace current
+for_window [window_role="Preferences"] floating enable,move workspace current
+
+for_window [window_type="dialog"] floating enable,move workspace current
+for_window [window_type="menu"] floating enable,move workspace current
+
+
+
+
+
+# Scratchpad
+# =============================
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+
+
+# Workspace key bindings
+# =============================
+
+# switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+
+
+
+
+
+# volume & media key bindings
+# =============================
+
+bindsym XF86AudioLowerVolume  exec --no-startup-id amixer -c 1 set Master 5-
+bindsym XF86AudioRaiseVolume  exec --no-startup-id amixer -c 1 set Master 5+
+bindsym XF86AudioMute         exec --no-startup-id amixer -q sset Master toggle
+bindsym XF86AudioPlay         exec playerctl play-pause
+bindsym XF86AudioPause        exec playerctl pause
+bindsym XF86AudioNext         exec playerctl next
+bindsym XF86AudioPrev         exec playerctl previous
+
+
+
+
+
+
+# System lock, logout, suspend, hibernate, reboot, shutdown
+# ===========================================================
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (Shift+r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l       exec --no-startup-id bin/i3exit lock,      mode "default"
+    bindsym e       exec --no-startup-id bin/i3exit logout,    mode "default"
+    bindsym s       exec --no-startup-id bin/i3exit suspend,   mode "default"
+    bindsym h       exec --no-startup-id bin/i3exit hibernate, mode "default"
+    bindsym Shift+r exec --no-startup-id bin/i3exit reboot,    mode "default"
+    bindsym Shift+s exec --no-startup-id bin/i3exit shutdown,  mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+b mode "$mode_system"
+
+# alternative shutdown
+# bindcode 124 exec "i3-nagbar -t warning -m 'What would you like to do?' -b 'Shutdown' 'sudo poweroff' -b 'Restart' 'sudo reboot'"
+
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Are you sure you want to log out?' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+
+
+
+
+
+
+# Window resizing
+# =======================
+
+bindsym $mod+r mode "resize"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
+
+# Gaps resizing
+# > credits to github.com/Airblader
+# =======================
+
+set $mode_gaps [gaps-mode] (o) outer, (i) inner, (0) zero, (d) default
+set $mode_gaps_outer [outer gaps] Shift=all, default=current (+) +5px, (-) -5px, (0) zero, (d) default
+set $mode_gaps_inner [inner gaps] Shift=all, default=current (+) +5px, (-) -5px, (0) zero, (d) default
+bindsym $mod+Shift+g mode "$mode_gaps"
+mode "$mode_gaps" {
+    bindsym o      mode "$mode_gaps_outer"
+    bindsym i      mode "$mode_gaps_inner"
+
+    bindsym 0      mode "default", exec --no-startup-id i3-msg "gaps inner current set 0" && i3-msg "gaps outer current set 0"
+    bindsym d      mode "default", exec --no-startup-id i3-msg "gaps inner current set $default_gaps_inner" && i3-msg "gaps outer current set $default_gaps_outer"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+    bindsym plus  gaps inner current plus 5
+    bindsym minus gaps inner current minus 5
+    bindsym 0     mode "default", gaps inner current set 0
+    bindsym d     mode "default", gaps inner current set $default_gaps_inner
+
+    bindsym Shift+plus  gaps inner all plus 5
+    bindsym Shift+minus gaps inner all minus 5
+    bindsym Shift+0     mode "default", gaps inner all set 0
+    bindsym Shift+d     mode "default", gaps inner all set $default_gaps_inner
+
+    bindsym Return mode "$mode_gaps"
+    bindsym Escape mode "$mode_gaps"
+}
+
+mode "$mode_gaps_outer" {
+    bindsym plus  gaps outer current plus 5
+    bindsym minus gaps outer current minus 5
+    bindsym 0     mode "default", gaps outer current set 0
+    bindsym d     mode "default", gaps outer current set $default_gaps_outer
+
+    bindsym Shift+plus  gaps outer all plus 5
+    bindsym Shift+minus gaps outer all minus 5
+    bindsym Shift+0     mode "default", gaps outer all set 0
+    bindsym Shift+d     mode "default", gaps outer all set $default_gaps_outer
+
+    bindsym Return mode "$mode_gaps"
+    bindsym Escape mode "$mode_gaps"
+}
+
+
+
+
+# Fading
+# =======================
+
+# Compton for fading etc.
+exec compton -c -C -r 12
+
+
+
+
+# Wallpaper
+# =======================
+
+# set wallpaper
+exec_always --no-startup-id feh --bg-fill wallpaper
+
+# change wallpaper
+bindsym $mod+Shift+m exec --no-startup-id bin/reddit-wallpaper
+
+
+
+# Screenshot
+# =======================
+
+# create screenshot dir
+exec_always --no-startup-id mkdir -p ~/images/shots
+
+# screenshot mode
+set $mode_screenshot scrot (m) multidisp, (u) focused
+mode "$mode_screenshot" {
+
+    #TODO add sub-mode to upload to imgur or other image hosts
+    bindsym m mode "default", exec --no-startup-id scrot '%Y-%m-%d_%s_$wx$h_scrot.png' -m -z -e 'mv $f ~/images/shots/'
+    bindsym u mode "default", exec --no-startup-id scrot '%Y-%m-%d_%s_$wx$h_scrot.png' -u -z -e 'mv $f ~/images/shots/'
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+p mode "$mode_screenshot"
+
+
+# -----------------------------------------------
+#              open for suggestions!
+# -----------------------------------------------
+

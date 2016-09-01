@@ -1,0 +1,107 @@
+
+! urxvt
+
+! rxvt is recognized by most programs, the bashrc colors it.
+URxvt*termName:          rxvt
+
+URxvt*geometry:          115x40
+URxvt*loginShell: true
+URxvt*font:              xft:Monospace:pixelsize=12:antialias=true:hinting=true
+URxvt*boldFont:          xft:Monospace:bold:pixelsize=12:antialias=true:hinting=true
+URxvt*depth:             24
+URxvt*borderless:        1
+URxvt*dynamicColors: on
+
+URxvt.transparent:       true
+URxvt*.shading:          10
+
+
+
+! scrolling
+URxvt*scrollBar:         false
+URxvt*saveLines:         500
+
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+
+
+! Meta modifier for keybindings
+!URxvt.modifier: super
+
+!! perl extensions
+URxvt.perl-ext:             default,matcher,url-select,clipboard
+
+! url-select (part of urxvt-perls package)
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.url-select.autocopy:  true
+URxvt.url-select.button:    2
+URxvt.url-select.launcher:  firefox
+URxvt.url-select.underline: true
+
+
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.matcher.rend.0: Uline Bold fg5
+
+
+
+
+
+! copy/paste
+URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
+URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
+
+
+! disable the ctrl+shift 'feature'
+URxvt.iso14755:    false
+URxvt.iso14755_52: false
+
+
+! special
+*.foreground:   #ffffff
+*.background:   #000000
+*.cursorColor:  #ffffff
+
+! black
+*.color0:       #101010
+*.color8:       #404040
+
+! red
+*.color1:       #e84f4f
+*.color9:       #d23d3d
+
+! green
+*.color2:       #b8d68c
+*.color10:      #a0cf5d
+
+! yellow
+*.color3:       #e1aa5d
+*.color11:      #f39d21
+
+! blue
+*.color4:       #7dc1cf
+*.color12:      #4e9fb1
+
+! magenta
+*.color5:       #9b64fb
+*.color13:      #8542ff
+
+! cyan
+*.color6:       #6d878d
+*.color14:      #42717b
+
+! white
+*.color7:       #dddddd
+*.color15:      #dddddd
+
+
+
+
+
