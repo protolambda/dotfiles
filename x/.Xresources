@@ -6,8 +6,8 @@ URxvt*termName:          rxvt
 
 URxvt*geometry:          115x40
 URxvt*loginShell: true
-URxvt*font:              xft:Monospace:pixelsize=12:antialias=true:hinting=true
-URxvt*boldFont:          xft:Monospace:bold:pixelsize=12:antialias=true:hinting=true
+URxvt*font:              xft:Monospace:pixelsize=14:antialias=true:hinting=true
+URxvt*boldFont:          xft:Monospace:bold:pixelsize=14:antialias=true:hinting=true
 URxvt*depth:             24
 URxvt*borderless:        1
 URxvt*dynamicColors: on
