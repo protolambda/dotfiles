@@ -166,5 +166,9 @@ unset use_color safe_term match_lhs
 # }}}
 
 
-export NVM_DIR="/home/proto/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+source /usr/share/nvm/init-nvm.sh
+
+
+PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+
+
