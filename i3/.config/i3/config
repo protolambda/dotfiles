@@ -17,15 +17,15 @@ bindcode $mod+36 exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # dmenu (TODO: try rofi)
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn 'xft:Monospace:pixelsize=14:antialias=true:hinting=true'"
 
 
 
 # reload .Xresources
 exec_always exec xrdb -load .Xresources
 
-# font
-font pango:DejaVu Sans Mono 8
+# font (used for workspace indicators and other bar stuff)
+font pango:DejaVu Sans Mono 9
 
 
 
@@ -383,7 +383,7 @@ mode "$mode_gaps_outer" {
 # =======================
 
 # Compton for fading etc.
-exec compton -c -C -r 12
+exec --no-startup-id compton -b -c -C -G -r 12
 
 
 
