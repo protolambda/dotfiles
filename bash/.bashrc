@@ -138,7 +138,9 @@ if [ -f "$HOME/.androidrc" ]; then
 fi
 
 
-export EDITOR=/usr/bin/gvim
+
+export VISUAL=/usr/bin/vim
+export EDITOR="$VISUAL"
 export SVN_EDITOR="$EDITOR --nofork"
 export CVS_RSH=ssh
 export WWW_HOME=http://www.archlinux.org
