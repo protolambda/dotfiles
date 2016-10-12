@@ -5,15 +5,17 @@
 URxvt*termName:          rxvt
 
 URxvt*geometry:          115x40
-URxvt*loginShell: true
+URxvt*loginShell:        true
 URxvt*font:              xft:Monospace:pixelsize=14:antialias=true:hinting=true
 URxvt*boldFont:          xft:Monospace:bold:pixelsize=14:antialias=true:hinting=true
+! lineSpace 1 fixes some missing characters (underscore etc.) with small font sizes.
+URxvt*lineSpace:         1
 URxvt*depth:             24
 URxvt*borderless:        1
-URxvt*dynamicColors: on
+URxvt*dynamicColors:     on
 
-URxvt.transparent:       true
-URxvt*.shading:          10
+URxvt*transparent:       true
+URxvt*shading:          10
 
 
 
