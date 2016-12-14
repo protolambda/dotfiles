@@ -137,6 +137,16 @@ if [ -f "$HOME/.androidrc" ]; then
     . "$HOME/.androidrc"
 fi
 
+# set Node environment
+if [ -f "$HOME/.noderc" ]; then
+    . "$HOME/.noderc"
+fi
+
+# set Ruby environment
+if [ -f "$HOME/.rubyrc" ]; then
+    . "$HOME/.rubyrc"
+fi
+
 
 
 export VISUAL=/usr/bin/vim
@@ -166,11 +176,5 @@ fi
 # Try to keep environment pollution down, EPA loves us.
 unset use_color safe_term match_lhs
 # }}}
-
-
-source /usr/share/nvm/init-nvm.sh
-
-
-PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 
