@@ -383,7 +383,7 @@ mode "$mode_gaps_outer" {
 # =======================
 
 # Compton for fading etc.
-exec --no-startup-id compton -b -c -C -G -r 12
+# *disbled*                   exec --no-startup-id compton -b -c -C -G -r 12
 
 
 
