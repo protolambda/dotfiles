@@ -147,6 +147,11 @@ if [ -f "$HOME/.rubyrc" ]; then
     . "$HOME/.rubyrc"
 fi
 
+# set Go environment
+if [ -f "$HOME/.golangrc" ]; then
+    . "$HOME/.golangrc"
+fi
+
 
 
 export VISUAL=/usr/bin/vim
