@@ -1,10 +1,10 @@
 # Subreddit list for reddit-wallpaper bash script
 
 # seasons
-r/SpringPorn
-r/SummerPorn
-r/AutumnPorn
-r/WinterPorn
+#r/SpringPorn
+#r/SummerPorn
+#r/AutumnPorn
+#r/WinterPorn
 
 # special
 r/AgriculturePorn
@@ -27,16 +27,8 @@ r/ImaginaryCityscapes
 r/ImaginaryLandscapes
 r/ImaginaryWastelands
 
-# themed
-r/steampunk_wallpapers
-r/abondoned_porn
-
 # games
-r/GAMING_Wallpapers
-
-# Minecraft
-r/MCrenders
-r/MinecraftWallpapers
+#r/GAMING_Wallpapers
 
 # effects
 r/tiltshift
@@ -46,7 +38,7 @@ r/MinimalWallpaper
 #jk r/true_MinimalWallpaper
 
 # generic wallpaper
-r/WidescreenWallpaper
+# r/WidescreenWallpaper
 r/wallpapers
 r/wallpaper
 
