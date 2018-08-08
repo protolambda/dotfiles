@@ -26,7 +26,7 @@ cat "$HOME/.img_subreddits" \
 | grep '^[^\#]' \
 | shuf -n 1 \
 | tee -a "$HOME/wallpaper.log" \
-| sed 's/.*/\"http\:\/\/reddit.com\/\0\/hot.json?limit=10\"/' \
+| sed 's/.*/\"http\:\/\/reddit.com\/\0\/top.json?t=week&limit=10\"/' \
 | xargs wget -qO- \
 | tr ',' '\n' \
 | grep '"url"' \
