@@ -1,6 +1,6 @@
 #! /bin/bash
 
-xrandr --auto
+xrandr --auto --dpi 90
 
 xrdb -load ~/.Xresources
 
