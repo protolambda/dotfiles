@@ -1,0 +1,4 @@
+#!/bin/bash
+
+xsel -bo > "$HOME/.aws/credentials"
+sed -i "1s/.*/\[sso\]/" "$HOME/.aws/credentials"

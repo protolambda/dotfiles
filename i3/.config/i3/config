@@ -383,7 +383,7 @@ mode "$mode_gaps_outer" {
 # =======================
 
 # Compton for fading etc.
-# *disbled*                   exec --no-startup-id compton -b -c -C -G -r 12
+exec_always --no-startup-id compton -b -C -G -D 2
 
 
 
@@ -418,6 +418,10 @@ mode "$mode_screenshot" {
 }
 
 bindsym $mod+Shift+p mode "$mode_screenshot"
+
+# Bluetooth
+# ======================
+exec_always --no-startup-id blueman-applet
 
 
 # -----------------------------------------------

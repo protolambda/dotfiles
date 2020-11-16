@@ -152,6 +152,11 @@ if [ -f "$HOME/.golangrc" ]; then
     . "$HOME/.golangrc"
 fi
 
+# set Dart environment
+if [ -f "$HOME/.dartrc" ]; then
+    . "$HOME/.dartrc"
+fi
+
 
 
 export VISUAL=/usr/bin/vim
@@ -181,5 +186,19 @@ fi
 # Try to keep environment pollution down, EPA loves us.
 unset use_color safe_term match_lhs
 # }}}
+
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/opt/google-cloud-sdk/path.bash.inc' ]; then . '/opt/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/opt/google-cloud-sdk/completion.bash.inc' ]; then . '/opt/google-cloud-sdk/completion.bash.inc'; fi
+
+export PATH="$PATH:$(yarn global bin)"
+
+export PATH="$PATH:$HOME/.local/bin"
+
+export PATH="$PATH:$HOME/.cargo/bin"
 
 
