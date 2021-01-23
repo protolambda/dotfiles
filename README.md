@@ -28,3 +28,13 @@ Some configurations are adaptions of others, the source is either mentioned in t
 
 Fork this repo, create a branch for each distro/computer you use, and create a pull request if you want to contribute.
 
+## Extra
+
+TTY trick, run xorg and wm without display env. In `/etc/profile`:
+
+```bash
+# autostart xorg-server on tty1
+if [[ "$(tty)" == '/dev/tty1' ]]; then
+      exec startx
+fi
+```
