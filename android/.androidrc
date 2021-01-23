@@ -1,5 +1,0 @@
-export ANDROID_HOME=/opt/android-sdk
-
-#Android Hierarchy Viewer Variable
-export ANDROID_HVPROTO="ddm sh monitor"
-
