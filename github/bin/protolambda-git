@@ -1,0 +1,4 @@
+#!/bin/bash
+git config --local user.email "proto@protolambda.com"
+git config --local user.name protolambda
+
