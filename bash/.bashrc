@@ -157,6 +157,11 @@ if [ -f "$HOME/.dartrc" ]; then
     . "$HOME/.dartrc"
 fi
 
+# set Dotnet environment
+if [ -f "$HOME/.dotnetrc" ]; then
+    . "$HOME/.dotnetrc"
+fi
+
 
 
 export VISUAL=/usr/bin/vim
