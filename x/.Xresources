@@ -1,4 +1,4 @@
-Xcursor.size: 12
+Xcursor.size: 20
 
 ! urxvt
 
@@ -7,8 +7,8 @@ URxvt*termName:          rxvt
 
 URxvt*geometry:          115x40
 URxvt*loginShell:        true
-URxvt*font:              xft:Monospace:pixelsize=14:antialias=true:hinting=true
-URxvt*boldFont:          xft:Monospace:bold:pixelsize=14:antialias=true:hinting=true
+URxvt*font:              xft:Monospace:pixelsize=20:antialias=true:hinting=true
+URxvt*boldFont:          xft:Monospace:bold:pixelsize=20:antialias=true:hinting=true
 ! lineSpace 1 fixes some missing characters (underscore etc.) with small font sizes.
 URxvt*lineSpace:         1
 URxvt*depth:             24
