@@ -200,7 +200,7 @@ if [ -f '/opt/google-cloud-sdk/path.bash.inc' ]; then . '/opt/google-cloud-sdk/p
 # The next line enables shell command completion for gcloud.
 if [ -f '/opt/google-cloud-sdk/completion.bash.inc' ]; then . '/opt/google-cloud-sdk/completion.bash.inc'; fi
 
-export PATH="$PATH:$(yarn global bin)"
+# export PATH="$PATH:$(yarn global bin)"
 
 export PATH="$PATH:$HOME/.local/bin"
 

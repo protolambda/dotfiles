@@ -1,0 +1,8 @@
+*.iml
+.idea
+*.swp
+*.log
+.DS_Store
+npm-debug.log
+*~
+

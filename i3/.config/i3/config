@@ -386,6 +386,9 @@ mode "$mode_gaps_outer" {
 exec_always --no-startup-id compton -b -C -G -D 2
 
 
+# Notifications
+# =======================
+exec dunst
 
 
 # Wallpaper
