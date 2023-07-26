@@ -4,7 +4,7 @@ separator=false
 separator_block_width=30
 
 [window]
-command=xtitle -s -t 120 
+command=xtitle -s | cat
 align=center
 interval=persist
 
